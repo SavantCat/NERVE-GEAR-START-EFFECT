@@ -35,7 +35,7 @@ public class start_effect : MonoBehaviour {
 			for(int i = 0; i < clone.Length; i++){
 				clone[i] = (GameObject)GameObject.Instantiate(base_obj);
 
-				clone[i].transform.position = new Vector3(r[i]*Mathf.Cos(n[i]),r[i]*Mathf.Sin(n[i]),z[i] + offset);
+				clone[i].transform.position = new Vector3(r[i]*Mathf.Cos(n[i]),r[i]*Mathf.Sin(n[i]),z[i] + offset) + transform.position;
 				clone[i].transform.parent = transform;
 				clone[i].renderer.material = mate[(int)Random.Range (0f, mate.Length)];
 			}
