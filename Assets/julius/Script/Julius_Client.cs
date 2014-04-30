@@ -19,6 +19,7 @@ public class Julius_Client : MonoBehaviour {
 	//--------------------変数-----------------------------------------------------------
 	
 	//juliusからの結果用
+	public bool 	ready  = false;
 	public string 	Result;
 	public string	message;
 	public	int return_num = 0;
@@ -39,7 +40,7 @@ public class Julius_Client : MonoBehaviour {
 	private 	 	TcpClient 		tcpip 			= null;
 	private  		NetworkStream 	net;
 	private  		string 			stream;
-	private			float			wait_time 		= 1;
+	private			float			wait_time 		= 10;
 	
 	//XML処理用
 	public			string			regular			= "WORD=\"([^。\"]+)\"";
@@ -227,6 +228,7 @@ public class Julius_Client : MonoBehaviour {
 
 				Debug.Log ("tmp : "+tmp+" "+"word : "+words+" Result : "+Result);
 				message = "Ready!";
+				ready = true;
 				return_num = 1;
 				if(tmp != words){
 					words  = tmp;

@@ -3,10 +3,10 @@ using System.Collections;
 
 [RequireComponent(typeof(MeshRenderer))]
 [RequireComponent(typeof(LineRenderer))]
-[ExecuteInEditMode()]
+//[ExecuteInEditMode()]
 public class GUI_circle_v2 : MonoBehaviour {
 	public control control;
-	private int segments = 100;
+	public int segments = 100;
 	public int value = 0;
 	public bool offest = false;
 	public float offset_angle = 0;
@@ -46,7 +46,7 @@ public class GUI_circle_v2 : MonoBehaviour {
 		}
 		line.SetVertexCount (segments + 1);
 		line.useWorldSpace = false;
-		//line.SetWidth(line_width ,line_width );
+		line.SetWidth(line_width ,line_width );
 		CreatePoints();
 		if(control == null)
 			drow_circle((int)control.value);
@@ -54,8 +54,11 @@ public class GUI_circle_v2 : MonoBehaviour {
 	
 	void Update(){
 		//drow_circle(value - Random.Range(-40, 40));
-		if(control != null)
-			drow_circle((int)control.value);
+		if (control != null) {
+			drow_circle ((int)control.value);
+			value = (int)control.value;
+		}
+
 	}
 	
 	void CreatePoints()

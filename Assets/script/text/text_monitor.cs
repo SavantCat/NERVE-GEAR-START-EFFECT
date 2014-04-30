@@ -28,7 +28,7 @@ public class text_monitor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		tmp = control.julius.message + "\n";
+		tmp = control.text_message + "\n";
 		Debug.Log(transform.name + ":" + tmp);
 		if(tmp != str[i-1]){
 			str[i++] =tmp;
